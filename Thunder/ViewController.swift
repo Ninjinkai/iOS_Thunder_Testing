@@ -9,10 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var playSoundButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        playSoundButton.setTitle("Call down the Thunder!", forState: .Normal)
+        playSoundButton.backgroundColor = UIColor.redColor()
+        playSoundButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +27,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func didTapPlaySoundButton(sender: UIButton) {
+        print("Button was pressed.")
+    }
 
 }
 
