@@ -18,12 +18,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rix-Yv-jKY">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <rect key="frame" x="200" y="200" width="204" height="201"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="OJ2-ma-efZ"/>
-                                    <constraint firstAttribute="width" constant="200" id="WBI-hh-g8B"/>
+                                    <constraint firstAttribute="height" constant="201" id="OJ2-ma-efZ"/>
+                                    <constraint firstAttribute="width" constant="204" id="WBI-hh-g8B"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Call down the Thunder!">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="100"/>
@@ -37,11 +40,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rix-Yv-jKY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XIj-B8-AOB"/>
-                            <constraint firstItem="Rix-Yv-jKY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XrQ-9h-nje"/>
+                            <constraint firstItem="Rix-Yv-jKY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="2" id="XrQ-9h-nje"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playSoundButton" destination="Rix-Yv-jKY" id="cYU-l9-pTb"/>
+                        <outlet property="playThunderSoundButton" destination="Rix-Yv-jKY" id="WgV-rh-Uo4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

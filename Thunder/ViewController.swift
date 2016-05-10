@@ -7,18 +7,26 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
+   
+    @IBOutlet weak var playThunderSoundButton: UIButton!
+    var thunderSoundEffect: AVAudioPlayer! = nil
     
-    @IBOutlet weak var playSoundButton: UIButton!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playSoundButton.setTitle("Call down the Thunder!", forState: .Normal)
-        playSoundButton.backgroundColor = UIColor.redColor()
-        playSoundButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        playThunderSoundButton.layer.borderWidth = 2.0
+        playThunderSoundButton.layer.borderColor = UIColor.clearColor().CGColor
+        playThunderSoundButton.layer.shadowColor = UIColor.blackColor().CGColor
+        playThunderSoundButton.layer.shadowOpacity = 0.5
+        playThunderSoundButton.layer.shadowRadius = 2.0
+        playThunderSoundButton.layer.shadowOffset = CGSizeMake(0, 3)
         
+        playThunderSoundButton.addTarget(self, action: #selector(ViewController.buttonPressed), forControlEvents: UIControlEvents.TouchDown)
+        
+        playThunderSoundButton.addTarget(self, action: #selector(ViewController.buttonReleased), forControlEvents: UIControlEvents.TouchUpInside)
         
     }
 
@@ -29,7 +37,26 @@ class ViewController: UIViewController {
 
     @IBAction func didTapPlaySoundButton(sender: UIButton) {
         print("Button was pressed.")
+        
+        let path = NSBundle.mainBundle().pathForResource("thunderAudioFile", ofType: "wav")
+        let url = NSURL(fileURLWithPath: path!)
+        
+        do {
+            thunderSoundEffect = try AVAudioPlayer(contentsOfURL: url)
+            thunderSoundEffect.prepareToPlay()
+            thunderSoundEffect.play()
+        } catch let error {
+            print ("Audio file not found. \(error)")
+        }
+        
+    }
+    
+    func buttonPressed() {
+        playThunderSoundButton.layer.shadowOffset = CGSizeZero
+    }
+    
+    func buttonReleased() {
+        playThunderSoundButton.layer.shadowOffset = CGSizeMake(0, 3)
     }
 
 }
-
